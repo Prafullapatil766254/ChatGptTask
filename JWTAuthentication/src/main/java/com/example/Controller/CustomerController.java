@@ -18,7 +18,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/v1/customer")
 public class CustomerController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class CustomerController {
 
 
 
-    @PostMapping("/customer")
+    @PostMapping("/register")
     public ResponseEntity<String> createCustomer(@RequestBody @Valid Customer customer){
         return customerService.createCustomer(customer);
     }
@@ -49,22 +49,22 @@ public class CustomerController {
         }
     }
 
-    @GetMapping("customer/id")
+    @GetMapping("/id")
     public ResponseEntity<Customer> getCustomerById(@RequestParam Integer id){
         return customerService.getCustomerById(id);
     }
 
-    @PutMapping("customer/password/id/{id}")
+    @PutMapping("/password/id/{id}")
     public ResponseEntity<RequestResponse> updateCustomerPassword(@PathVariable Integer id , @RequestParam String oldPassword , @RequestParam String newPassword){
         return customerService.updateCustomerPassword(id , oldPassword , newPassword);
     }
 
-    @GetMapping("customers/page")
+    @GetMapping("all/page")
     public Page<Customer> getListOfCustomersByPage(Pageable pageable){
         return customerService.getListOfCustomersByPage(pageable);
     }
 
-    @DeleteMapping("customer/id/{id}")
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<RequestResponse> deleteCustomer(@PathVariable Integer id){
         return customerService.deleteCustomer(id);
     }
