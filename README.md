@@ -33,7 +33,7 @@ The Chat API is a Java application built using Maven and the Spring Boot framewo
 
 - **ChatGpt Controller (`ChatController`):**
   - A Spring `@RestController` that handles chat requests.
-  - Exposes an endpoint (`/chatRequest`) to receive chat prompts.
+  - Exposes an endpoint (`/api/v1/send`) to receive chat prompts.
   - Sends the prompt to the OpenAI API and extracts the completed message from the response.
 
 ### API Endpoints
